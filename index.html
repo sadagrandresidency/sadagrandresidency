@@ -514,6 +514,101 @@
     }
     .sgr-form-submit:hover { opacity: 0.88; }
 
+    /* BOOKING POPUP */
+    .popup-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(15,10,4,0.88); z-index: 999;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .popup-overlay.active { display: flex; }
+    .popup-modal {
+      background: #fff; width: 100%; max-width: 660px;
+      border-radius: 4px; overflow: hidden; max-height: 90vh; overflow-y: auto;
+    }
+    .popup-header {
+      background: #1A1209; padding: 20px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .popup-header-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 20px; font-weight: 400; }
+    .popup-header-sub { color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 3px; }
+    .popup-close {
+      background: rgba(255,255,255,0.08); border: none; color: rgba(255,255,255,0.6);
+      width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+      font-size: 16px; display: flex; align-items: center; justify-content: center;
+    }
+    .popup-close:hover { background: rgba(255,255,255,0.18); color: #fff; }
+    .popup-steps {
+      display: flex; border-bottom: 1px solid #eee;
+      position: sticky; top: 64px; background: #fff; z-index: 9;
+    }
+    .popup-step {
+      flex: 1; padding: 12px 8px; text-align: center;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #aaa; font-weight: 400; border-bottom: 2px solid transparent; cursor: pointer;
+    }
+    .popup-step.active { color: var(--dark); border-bottom-color: var(--gold); font-weight: 500; }
+    .popup-step.done { color: var(--gold); }
+    .popup-body { padding: 24px 28px; }
+    .popup-panel { display: none; }
+    .popup-panel.active { display: block; }
+    .pf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .pf-field { margin-bottom: 16px; }
+    .pf-label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+    .pf-input {
+      width: 100%; border: 1px solid #e0d8cc; padding: 11px 14px;
+      font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text);
+      outline: none; border-radius: 2px; background: #fff; transition: border-color 0.2s;
+    }
+    .pf-input:focus { border-color: var(--gold); }
+    .pf-select {
+      width: 100%; border: 1px solid #e0d8cc; padding: 11px 14px;
+      font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text);
+      outline: none; border-radius: 2px; background: #fff; appearance: none; cursor: pointer;
+    }
+    .pf-select:focus { border-color: var(--gold); }
+    .room-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .room-opt {
+      border: 1.5px solid #e0d8cc; border-radius: 3px; padding: 16px 12px;
+      cursor: pointer; transition: all 0.2s; text-align: center;
+    }
+    .room-opt:hover { border-color: var(--gold); }
+    .room-opt.selected { border-color: var(--gold); background: #fdf8ef; }
+    .room-opt-badge { display: inline-block; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; background: var(--gold); color: var(--dark); padding: 2px 8px; margin-bottom: 8px; font-weight: 500; }
+    .room-opt-name { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--dark); margin-bottom: 4px; }
+    .room-opt-size { font-size: 11px; color: #aaa; margin-bottom: 8px; }
+    .room-opt-price { font-size: 18px; color: var(--gold); font-family: 'Playfair Display', serif; font-weight: 600; }
+    .room-opt-night { font-size: 10px; color: #aaa; }
+    .nights-info { font-size: 12px; color: var(--muted); margin-bottom: 16px; padding: 10px 14px; background: #fdf8ef; border-radius: 2px; border: 1px solid #e8d8b0; }
+    .meal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .meal-opt {
+      border: 1.5px solid #e0d8cc; border-radius: 3px; padding: 12px 14px;
+      cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 10px;
+    }
+    .meal-opt:hover { border-color: var(--gold); }
+    .meal-opt.selected { border-color: var(--gold); background: #fdf8ef; }
+    .meal-icon { width: 34px; height: 34px; background: #f5f0e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .meal-name { font-size: 13px; color: var(--dark); font-weight: 500; }
+    .meal-desc { font-size: 11px; color: #aaa; }
+    .summary-card { background: #fdf8ef; border: 1px solid #e8d8b0; border-radius: 3px; padding: 20px; margin-bottom: 16px; }
+    .summary-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--dark); margin-bottom: 14px; }
+    .summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+    .summary-key { font-size: 12px; color: var(--muted); }
+    .summary-val { font-size: 12px; color: var(--dark); font-weight: 500; }
+    .summary-divider { height: 1px; background: #e8d8b0; margin: 12px 0; }
+    .summary-total-val { font-size: 20px; color: var(--gold); font-family: 'Playfair Display', serif; font-weight: 600; }
+    .popup-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #eee; }
+    .popup-back { background: transparent; border: 1px solid #e0d8cc; color: var(--muted); padding: 11px 24px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 1px; }
+    .popup-next { background: var(--dark); color: #fff; border: none; padding: 11px 32px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; cursor: pointer; border-radius: 1px; }
+    .popup-next:hover { background: #2C2416; }
+    .popup-confirm { background: var(--gold); color: var(--dark); border: none; padding: 11px 32px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; cursor: pointer; border-radius: 1px; }
+    .popup-confirm:hover { opacity: 0.88; }
+    .success-wrap { text-align: center; padding: 32px 20px; }
+    .success-icon { width: 60px; height: 60px; background: #f0faf4; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--dark); margin-bottom: 10px; }
+    .success-msg { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .booking-ref { background: #fdf8ef; border: 1px solid #e8d8b0; border-radius: 3px; padding: 12px 24px; display: inline-block; font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); letter-spacing: 3px; }
+
     /* FOOTER */
     .sgr-footer {
       background: #0D0A04;
@@ -575,7 +670,7 @@
       <a href="#amenities">Amenities</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="sgr-nav-btn">Book Now</a>
+    <a class="sgr-nav-btn" onclick="openBooking()" style="cursor:pointer;">Book Now</a>
   </nav>
 
   <!-- HERO -->
@@ -585,7 +680,7 @@
       <h1>Where Every Stay Becomes<br>an <em>Unforgettable</em> Memory</h1>
       <p>Immerse yourself in gracious hospitality, world-class dining,<br>and timeless elegance at the heart of Udupi, Karnataka.</p>
       <div class="sgr-hero-btns">
-        <a href="#contact" class="sgr-btn-primary">Reserve Your Stay</a>
+        <a onclick="openBooking()" class="sgr-btn-primary" style="cursor:pointer;">Reserve Your Stay</a>
         <a href="#rooms" class="sgr-btn-outline">Explore Rooms</a>
       </div>
     </div>
@@ -593,33 +688,181 @@
 
   <!-- BOOKING BAR -->
   <div class="sgr-booking">
-    <div class="sgr-book-field">
-      <label>Check In</label>
-      <input type="date" />
-    </div>
-    <div class="sgr-book-field">
-      <label>Check Out</label>
-      <input type="date" />
-    </div>
+    <div class="sgr-book-field"><label>Check In</label><input type="date" id="barCheckin" /></div>
+    <div class="sgr-book-field"><label>Check Out</label><input type="date" id="barCheckout" /></div>
     <div class="sgr-book-field">
       <label>Guests</label>
-      <select>
+      <select id="barGuests">
         <option>1 Adult</option>
-        <option>2 Adults</option>
+        <option selected>2 Adults</option>
         <option>2 Adults, 1 Child</option>
         <option>2 Adults, 2 Children</option>
       </select>
     </div>
     <div class="sgr-book-field">
       <label>Room Type</label>
-      <select>
+      <select id="barRoom">
         <option>Deluxe Room</option>
-        <option>Junior Suite</option>
         <option>Executive Suite</option>
         <option>Presidential Suite</option>
       </select>
     </div>
-    <button class="sgr-book-submit" onclick="alert('Booking request received! We will contact you shortly.')">Check Availability</button>
+    <button class="sgr-book-submit" onclick="openBookingFromBar()">Check Availability</button>
+  </div>
+
+  <!-- BOOKING POPUP -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-modal">
+      <div class="popup-header">
+        <div>
+          <div class="popup-header-title">Reserve Your Room</div>
+          <div class="popup-header-sub">Sada Grand Residency · Udupi</div>
+        </div>
+        <button class="popup-close" onclick="closeBooking()">&#10005;</button>
+      </div>
+      <div class="popup-steps">
+        <div class="popup-step active" id="ptab1">1. Dates &amp; Guests</div>
+        <div class="popup-step" id="ptab2">2. Choose Room</div>
+        <div class="popup-step" id="ptab3">3. Dining &amp; Details</div>
+        <div class="popup-step" id="ptab4">4. Confirm</div>
+      </div>
+      <div class="popup-body">
+
+        <!-- STEP 1 -->
+        <div class="popup-panel active" id="ppanel1">
+          <div class="pf-row">
+            <div><label class="pf-label">Check-in Date</label><input class="pf-input" type="date" id="p-checkin" /></div>
+            <div><label class="pf-label">Check-out Date</label><input class="pf-input" type="date" id="p-checkout" /></div>
+          </div>
+          <div class="pf-row">
+            <div>
+              <label class="pf-label">Adults</label>
+              <select class="pf-select" id="p-adults">
+                <option>1 Adult</option><option selected>2 Adults</option><option>3 Adults</option><option>4 Adults</option>
+              </select>
+            </div>
+            <div>
+              <label class="pf-label">Children</label>
+              <select class="pf-select" id="p-children">
+                <option selected>No Children</option><option>1 Child</option><option>2 Children</option><option>3 Children</option>
+              </select>
+            </div>
+          </div>
+          <div class="pf-row">
+            <div><label class="pf-label">Full Name</label><input class="pf-input" type="text" id="p-name" placeholder="Your full name" /></div>
+            <div><label class="pf-label">Phone Number</label><input class="pf-input" type="tel" id="p-phone" placeholder="+91 XXXXX XXXXX" /></div>
+          </div>
+          <div class="popup-footer">
+            <span style="font-size:12px;color:#aaa;">Step 1 of 4</span>
+            <button class="popup-next" onclick="pGoStep(2)">Next: Choose Room &#8594;</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="popup-panel" id="ppanel2">
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7A6A52;margin-bottom:14px;">Select your room</div>
+          <div class="room-cards">
+            <div class="room-opt selected" id="ropt1" onclick="pSelectRoom(this,'Deluxe Room',3500)">
+              <div class="room-opt-badge">Popular</div>
+              <div class="room-opt-name">Deluxe Room</div>
+              <div class="room-opt-size">320 sq ft · King Bed</div>
+              <div class="room-opt-price">&#8377;3,500</div>
+              <div class="room-opt-night">per night</div>
+            </div>
+            <div class="room-opt" id="ropt2" onclick="pSelectRoom(this,'Executive Suite',6500)">
+              <div class="room-opt-badge" style="background:#e0d8cc;color:#7A6A52;">Value</div>
+              <div class="room-opt-name">Executive Suite</div>
+              <div class="room-opt-size">480 sq ft · Living Area</div>
+              <div class="room-opt-price">&#8377;6,500</div>
+              <div class="room-opt-night">per night</div>
+            </div>
+            <div class="room-opt" id="ropt3" onclick="pSelectRoom(this,'Presidential Suite',12000)">
+              <div class="room-opt-badge" style="background:#1A1209;color:#C9A84C;">Luxury</div>
+              <div class="room-opt-name">Presidential Suite</div>
+              <div class="room-opt-size">800 sq ft · Jacuzzi</div>
+              <div class="room-opt-price">&#8377;12,000</div>
+              <div class="room-opt-night">per night</div>
+            </div>
+          </div>
+          <div class="nights-info" id="p-nightsinfo"></div>
+          <div class="popup-footer">
+            <button class="popup-back" onclick="pGoStep(1)">&#8592; Back</button>
+            <button class="popup-next" onclick="pGoStep(3)">Next: Dining &amp; Details &#8594;</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="popup-panel" id="ppanel3">
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7A6A52;margin-bottom:12px;">Meal preference</div>
+          <div class="meal-grid">
+            <div class="meal-opt selected" onclick="pSelectMeal(this,'Room Only')">
+              <div class="meal-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#C9A84C" stroke-width="1.2"/></svg></div>
+              <div><div class="meal-name">Room Only</div><div class="meal-desc">No meals included</div></div>
+            </div>
+            <div class="meal-opt" onclick="pSelectMeal(this,'Breakfast Included')">
+              <div class="meal-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="#C9A84C" stroke-width="1.2"/><path d="M8 5v3l2 1" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+              <div><div class="meal-name">Breakfast</div><div class="meal-desc">South Indian breakfast</div></div>
+            </div>
+            <div class="meal-opt" onclick="pSelectMeal(this,'Half Board')">
+              <div class="meal-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 12V5M8 12V3M13 12V7" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+              <div><div class="meal-name">Half Board</div><div class="meal-desc">Breakfast + Dinner</div></div>
+            </div>
+            <div class="meal-opt" onclick="pSelectMeal(this,'Full Board')">
+              <div class="meal-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8 4v8" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+              <div><div class="meal-name">Full Board</div><div class="meal-desc">All 3 meals daily</div></div>
+            </div>
+          </div>
+          <div class="pf-field">
+            <label class="pf-label">Special Requests</label>
+            <textarea class="pf-input" id="p-special" rows="3" placeholder="Early check-in, extra pillows, anniversary decoration, dietary needs..." style="resize:none;"></textarea>
+          </div>
+          <div class="popup-footer">
+            <button class="popup-back" onclick="pGoStep(2)">&#8592; Back</button>
+            <button class="popup-next" onclick="pBuildSummary()">Review Booking &#8594;</button>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="popup-panel" id="ppanel4">
+          <div class="summary-card">
+            <div class="summary-title">Booking Summary</div>
+            <div class="summary-row"><span class="summary-key">Guest</span><span class="summary-val" id="s-name">—</span></div>
+            <div class="summary-row"><span class="summary-key">Phone</span><span class="summary-val" id="s-phone">—</span></div>
+            <div class="summary-row"><span class="summary-key">Check-in</span><span class="summary-val" id="s-checkin">—</span></div>
+            <div class="summary-row"><span class="summary-key">Check-out</span><span class="summary-val" id="s-checkout">—</span></div>
+            <div class="summary-row"><span class="summary-key">Guests</span><span class="summary-val" id="s-guests">—</span></div>
+            <div class="summary-row"><span class="summary-key">Room</span><span class="summary-val" id="s-room">—</span></div>
+            <div class="summary-row"><span class="summary-key">Meal Plan</span><span class="summary-val" id="s-meal">—</span></div>
+            <div class="summary-row"><span class="summary-key">Duration</span><span class="summary-val" id="s-nights">—</span></div>
+            <div class="summary-divider"></div>
+            <div class="summary-row">
+              <span style="font-size:13px;color:#1A1209;font-weight:500;">Total Amount</span>
+              <span class="summary-total-val" id="s-total">—</span>
+            </div>
+          </div>
+          <p style="font-size:11px;color:#aaa;margin-bottom:16px;line-height:1.7;">Free cancellation up to 24 hours before check-in. By confirming you agree to our booking policy.</p>
+          <div class="popup-footer">
+            <button class="popup-back" onclick="pGoStep(3)">&#8592; Back</button>
+            <button class="popup-confirm" onclick="pConfirm()">Confirm Booking</button>
+          </div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="popup-panel" id="ppanel5">
+          <div class="success-wrap">
+            <div class="success-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="success-title">Booking Confirmed!</div>
+            <p class="success-msg">Thank you for choosing Sada Grand Residency.<br>We will call you shortly to confirm your reservation.</p>
+            <div class="booking-ref" id="p-ref">SGR-00000</div>
+            <p style="font-size:11px;color:#aaa;margin-top:12px;margin-bottom:24px;">Save this reference number for your records.</p>
+            <button class="popup-confirm" onclick="closeBooking()">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <!-- STATS -->
@@ -833,5 +1076,105 @@
     </div>
   </footer>
 
+  <script>
+    var pRoom = 'Deluxe Room', pPrice = 3500, pMeal = 'Room Only';
+
+    function openBooking() {
+      document.getElementById('popupOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      var today = new Date();
+      var ci = new Date(today); ci.setDate(today.getDate()+1);
+      var co = new Date(today); co.setDate(today.getDate()+3);
+      document.getElementById('p-checkin').value = ci.toISOString().split('T')[0];
+      document.getElementById('p-checkout').value = co.toISOString().split('T')[0];
+      pUpdateNights();
+    }
+
+    function openBookingFromBar() {
+      var ci = document.getElementById('barCheckin').value;
+      var co = document.getElementById('barCheckout').value;
+      openBooking();
+      if(ci) document.getElementById('p-checkin').value = ci;
+      if(co) document.getElementById('p-checkout').value = co;
+      pUpdateNights();
+    }
+
+    function closeBooking() {
+      document.getElementById('popupOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+      pGoStep(1);
+      document.querySelectorAll('.popup-panel').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById('ppanel1').classList.add('active');
+    }
+
+    function pGoStep(n) {
+      document.querySelectorAll('.popup-panel').forEach(function(p){ p.classList.remove('active'); });
+      document.querySelectorAll('.popup-step').forEach(function(s){ s.classList.remove('active','done'); });
+      document.getElementById('ppanel'+n).classList.add('active');
+      if(document.getElementById('ptab'+n)) document.getElementById('ptab'+n).classList.add('active');
+      for(var i=1;i<n;i++){ if(document.getElementById('ptab'+i)) document.getElementById('ptab'+i).classList.add('done'); }
+    }
+
+    function pSelectRoom(el, name, price) {
+      document.querySelectorAll('.room-opt').forEach(function(e){ e.classList.remove('selected'); });
+      el.classList.add('selected');
+      pRoom = name; pPrice = price;
+      pUpdateNights();
+    }
+
+    function pSelectMeal(el, name) {
+      document.querySelectorAll('.meal-opt').forEach(function(e){ e.classList.remove('selected'); });
+      el.classList.add('selected');
+      pMeal = name;
+    }
+
+    function pUpdateNights() {
+      var ci = document.getElementById('p-checkin').value;
+      var co = document.getElementById('p-checkout').value;
+      var el = document.getElementById('p-nightsinfo');
+      if(ci && co && el) {
+        var n = Math.round((new Date(co)-new Date(ci))/86400000);
+        if(n>0) el.textContent = n+' night'+(n>1?'s':'')+' x &#8377;'+pPrice.toLocaleString('en-IN')+' = &#8377;'+(n*pPrice).toLocaleString('en-IN');
+        else el.textContent = 'Check-out must be after check-in.';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      var ci = document.getElementById('p-checkin');
+      var co = document.getElementById('p-checkout');
+      if(ci) ci.addEventListener('change', pUpdateNights);
+      if(co) co.addEventListener('change', pUpdateNights);
+    });
+
+    function pBuildSummary() {
+      var ci = document.getElementById('p-checkin').value;
+      var co = document.getElementById('p-checkout').value;
+      var n = Math.round((new Date(co)-new Date(ci))/86400000);
+      var total = n * pPrice;
+      var fmt = function(d){ return d ? new Date(d).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}) : '—'; };
+      document.getElementById('s-name').textContent = document.getElementById('p-name').value || '—';
+      document.getElementById('s-phone').textContent = document.getElementById('p-phone').value || '—';
+      document.getElementById('s-checkin').textContent = fmt(ci);
+      document.getElementById('s-checkout').textContent = fmt(co);
+      document.getElementById('s-guests').textContent = document.getElementById('p-adults').value+', '+document.getElementById('p-children').value;
+      document.getElementById('s-room').textContent = pRoom;
+      document.getElementById('s-meal').textContent = pMeal;
+      document.getElementById('s-nights').textContent = n+' night'+(n>1?'s':'');
+      document.getElementById('s-total').textContent = '&#8377;'+total.toLocaleString('en-IN');
+      pGoStep(4);
+    }
+
+    function pConfirm() {
+      var ref = 'SGR-'+Math.floor(10000+Math.random()*90000);
+      document.getElementById('p-ref').textContent = ref;
+      document.querySelectorAll('.popup-panel').forEach(function(p){ p.classList.remove('active'); });
+      document.querySelectorAll('.popup-step').forEach(function(s){ s.classList.remove('active','done'); });
+      document.getElementById('ppanel5').classList.add('active');
+    }
+
+    document.getElementById('popupOverlay').addEventListener('click', function(e){
+      if(e.target === this) closeBooking();
+    });
+  </script>
 </body>
 </html>
